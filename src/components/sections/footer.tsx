@@ -43,27 +43,21 @@ export function FooterSection() {
                                 <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                             </a>
                             <a
-                                href="https://youtube.com/@tigertronics"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="#"
                                 className="w-10 h-10 rounded-lg bg-card border border-border hover:border-primary/50 flex items-center justify-center transition-all hover:scale-110 group"
                                 aria-label="YouTube"
                             >
                                 <Youtube className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                             </a>
                             <a
-                                href="https://twitter.com/tigertronics"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="#"
                                 className="w-10 h-10 rounded-lg bg-card border border-border hover:border-primary/50 flex items-center justify-center transition-all hover:scale-110 group"
                                 aria-label="Twitter"
                             >
                                 <Twitter className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                             </a>
                             <a
-                                href="https://github.com/tigertronics"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="#"
                                 className="w-10 h-10 rounded-lg bg-card border border-border hover:border-primary/50 flex items-center justify-center transition-all hover:scale-110 group"
                                 aria-label="GitHub"
                             >
