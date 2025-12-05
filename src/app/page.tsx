@@ -766,10 +766,6 @@ function ContactSection() {
               </div>
             </div>
           </div>
-
-          <div className="mt-24 pt-10 border-t-2 border-border text-center">
-            <p className="text-muted-foreground text-base">© 2025 Tiger Tronics. All rights reserved.</p>
-          </div>
         </div>
       </div>
     </section>
