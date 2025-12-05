@@ -676,7 +676,7 @@ function ContactSection() {
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "hstigertronics@gmail.com",
+      value: "hsitigertronics@gmail.com",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
