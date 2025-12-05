@@ -3,100 +3,80 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Base colors - deep rich blacks with subtle blue undertones */
   --background: 8 12 16;
   --foreground: 248 250 252;
-
-  /* Surface colors - layered depth */
   --card: 15 20 25;
   --card-foreground: 248 250 252;
   --popover: 15 20 25;
   --popover-foreground: 248 250 252;
-
-  /* Primary - electric cyan with proper contrast */
-  --primary: 6 182 212;
-  --primary-foreground: 8 12 16;
-
-  /* Secondary - subtle slate for hierarchy */
+  --primary: 220 38 38;
+  --primary-foreground: 248 250 252;
   --secondary: 30 41 59;
   --secondary-foreground: 248 250 252;
-
-  /* Muted - mid-tone grays for supporting content */
   --muted: 30 41 59;
   --muted-foreground: 148 163 184;
-
-  /* Accent - vibrant cyan for highlights */
-  --accent: 14 165 233;
-  --accent-foreground: 8 12 16;
-
+  --accent: 185 28 28;
+  --accent-foreground: 248 250 252;
   --destructive: 239 68 68;
   --destructive-foreground: 248 250 252;
-
-  /* Borders and inputs - subtle definition */
   --border: 30 41 59;
   --input: 30 41 59;
-  --ring: 6 182 212;
-
-  /* Chart colors - cyan spectrum */
-  --chart-1: 6 182 212;
-  --chart-2: 14 165 233;
-  --chart-3: 56 189 248;
-  --chart-4: 125 211 252;
-  --chart-5: 186 230 253;
-
+  --ring: 220 38 38;
+  --chart-1: 220 38 38;
+  --chart-2: 185 28 28;
+  --chart-3: 153 27 27;
+  --chart-4: 127 29 29;
+  --chart-5: 99 102 241;
   --radius: 0.75rem;
   --sidebar: 248 250 252;
   --sidebar-foreground: 8 12 16;
-  --sidebar-primary: 6 182 212;
+  --sidebar-primary: 220 38 38;
   --sidebar-primary-foreground: 248 250 252;
-  --sidebar-accent: 14 165 233;
-  --sidebar-accent-foreground: 8 12 16;
+  --sidebar-accent: 185 28 28;
+  --sidebar-accent-foreground: 248 250 252;
   --sidebar-border: 30 41 59;
-  --sidebar-ring: 6 182 212;
+  --sidebar-ring: 220 38 38;
 }
 
 .dark {
-  --background: 14 165 233;
-  --foreground: 8 12 16;
-  --card: 14 165 233;
-  --card-foreground: 8 12 16;
-  --popover: 14 165 233;
-  --popover-foreground: 8 12 16;
-  --primary: 8 12 16;
-  --primary-foreground: 14 165 233;
-  --secondary: 248 250 252;
-  --secondary-foreground: 8 12 16;
-  --muted: 248 250 252;
+  --background: 8 12 16;
+  --foreground: 248 250 252;
+  --card: 15 20 25;
+  --card-foreground: 248 250 252;
+  --popover: 15 20 25;
+  --popover-foreground: 248 250 252;
+  --primary: 220 38 38;
+  --primary-foreground: 248 250 252;
+  --secondary: 30 41 59;
+  --secondary-foreground: 248 250 252;
+  --muted: 30 41 59;
   --muted-foreground: 148 163 184;
-  --accent: 8 12 16;
-  --accent-foreground: 14 165 233;
-  --destructive: 248 250 252;
-  --destructive-foreground: 8 12 16;
-  --border: 248 250 252;
-  --input: 248 250 252;
-  --ring: 14 165 233;
-  --chart-1: 8 12 16;
-  --chart-2: 14 165 233;
-  --chart-3: 56 189 248;
-  --chart-4: 125 211 252;
-  --chart-5: 186 230 253;
+  --accent: 185 28 28;
+  --accent-foreground: 248 250 252;
+  --destructive: 239 68 68;
+  --destructive-foreground: 248 250 252;
+  --border: 30 41 59;
+  --input: 30 41 59;
+  --ring: 220 38 38;
+  --chart-1: 220 38 38;
+  --chart-2: 185 28 28;
+  --chart-3: 153 27 27;
+  --chart-4: 127 29 29;
+  --chart-5: 99 102 241;
   --radius: 0.75rem;
   --sidebar: 8 12 16;
   --sidebar-foreground: 248 250 252;
-  --sidebar-primary: 14 165 233;
-  --sidebar-primary-foreground: 8 12 16;
-  --sidebar-accent: 8 12 16;
-  --sidebar-accent-foreground: 14 165 233;
-  --sidebar-border: 248 250 252;
-  --sidebar-ring: 14 165 233;
+  --sidebar-primary: 220 38 38;
+  --sidebar-primary-foreground: 248 250 252;
+  --sidebar-accent: 185 28 28;
+  --sidebar-accent-foreground: 248 250 252;
+  --sidebar-border: 30 41 59;
+  --sidebar-ring: 220 38 38;
 }
 
 @theme inline {
-  /* Typography system with Inter for body and Space Grotesk for display */
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
-
-  /* Color mappings */
   --color-background: rgb(var(--background));
   --color-foreground: rgb(var(--foreground));
   --color-card: rgb(var(--card));
@@ -144,7 +124,6 @@
     @apply bg-background text-foreground;
   }
 
-  /* Display typography uses Space Grotesk */
   h1,
   h2,
   h3,
