@@ -379,7 +379,7 @@ function RobotsSection() {
   const robots = [
     {
       name: "TigerBot 2025",
-      year: "2024",
+      year: "2025",
       description: "Our latest competition robot featuring advanced autonomous capabilities and precision engineering.",
       image: "/images/robot-images/V1/image-1.jpg",
       features: ["Autonomous Navigation", "Precision Manipulation", "Vision Based Programming", "Robust Design"]
