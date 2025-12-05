@@ -26,7 +26,7 @@ export function HeroSection() {
         >
           <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-card/50 border border-primary/20 rounded-full backdrop-blur-xl">
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-primary font-medium text-sm tracking-wider uppercase">FTC Team #12345</span>
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">FTC Team #32561</span>
           </div>
 
           <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight leading-none">

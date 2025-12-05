@@ -2,95 +2,48 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Mail, MapPin, Copy, Check } from "lucide-react"
 
 export function ContactSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [copied, setCopied] = useState(false)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.2 },
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
+  const copyEmail = () => {
+    navigator.clipboard.writeText("hsitigertronics@gmail.com")
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   const contactInfo = [
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
+      icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "team@tigertronics.com",
+      value: "hsitigertronics@gmail.com",
+      isEmail: true,
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-      label: "Phone",
-      value: "(555) 123-4567",
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
+      icon: <MapPin className="w-6 h-6" />,
       label: "Location",
-      value: "Your School Name, City, State",
+      value: "Harmony School of Innovation - Dallas, Texas",
+      isEmail: false,
     },
   ]
 
   return (
     <section
       id="contact"
-      ref={sectionRef}
       className="min-h-screen flex items-center py-32 px-6 bg-background relative overflow-hidden"
     >
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-0" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div
-          className={`transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-          }`}
-        >
+        <div>
           <div className="mb-6">
             <span className="text-primary font-mono text-sm font-bold tracking-widest uppercase">Get in Touch</span>
           </div>
 
-          <h2 className="text-6xl md:text-8xl font-black mb-20 text-balance tracking-tight">Contact Us</h2>
+          <h2 className="text-6xl md:text-8xl font-black mb-20 text-balance tracking-tight section-title bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+            Contact Us
+          </h2>
 
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
@@ -108,9 +61,32 @@ export function ContactSection() {
                       <div className="p-4 bg-primary/20 rounded-xl border border-primary/30 text-primary">
                         {info.icon}
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <p className="font-bold mb-2 text-lg">{info.label}</p>
-                        <p className="text-muted-foreground text-base">{info.value}</p>
+                        {info.isEmail ? (
+                          <div className="flex items-center justify-between gap-2">
+                            <a 
+                              href={`mailto:${info.value}`}
+                              className="text-muted-foreground text-base hover:text-primary transition-colors break-all"
+                            >
+                              {info.value}
+                            </a>
+                            <button
+                              onClick={copyEmail}
+                              className="ml-2 p-2 hover:bg-card rounded-lg transition-colors flex-shrink-0"
+                              aria-label={copied ? "Email copied to clipboard" : "Copy email address"}
+                              title={copied ? "Copied!" : "Copy email"}
+                            >
+                              {copied ? (
+                                <Check className="w-4 h-4 text-primary" />
+                              ) : (
+                                <Copy className="w-4 h-4 text-muted-foreground hover:text-primary transition-colors" />
+                              )}
+                            </button>
+                          </div>
+                        ) : (
+                          <p className="text-muted-foreground text-base">{info.value}</p>
+                        )}
                       </div>
                     </div>
                   )
@@ -119,42 +95,33 @@ export function ContactSection() {
             </div>
 
             <div className="bg-card border-2 border-border rounded-3xl p-10 shadow-2xl shadow-primary/5">
-              <form className="space-y-7">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-bold mb-3 tracking-wide">
-                    Name
-                  </label>
-                  <Input id="name" placeholder="Your name" className="bg-background border-2 h-12 text-base" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-bold mb-3 tracking-wide">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your.email@example.com"
-                    className="bg-background border-2 h-12 text-base"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-bold mb-3 tracking-wide">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell us what you're interested in..."
-                    rows={6}
-                    className="bg-background border-2 text-base"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 text-lg font-bold rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-primary/20"
+              <div className="space-y-6 text-center">
+                <p className="text-muted-foreground mb-8 leading-relaxed">
+                  Have questions about our team, want to sponsor us, or interested in joining? 
+                  Send us an email and we'll get back to you as soon as possible!
+                </p>
+                <a
+                  href="mailto:hsitigertronics@gmail.com?subject=Contact from Tiger Tronics Website"
+                  className="inline-block"
                 >
-                  Send Message
-                </Button>
-              </form>
+                  <Button
+                    size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 text-lg font-bold rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-primary/20"
+                  >
+                    <Mail className="w-5 h-5 mr-2" />
+                    Email Us
+                  </Button>
+                </a>
+                <p className="text-sm text-muted-foreground">
+                  Or reach out to us directly at{" "}
+                  <a 
+                    href="mailto:hsitigertronics@gmail.com" 
+                    className="text-primary hover:underline"
+                  >
+                    hsitigertronics@gmail.com
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
 

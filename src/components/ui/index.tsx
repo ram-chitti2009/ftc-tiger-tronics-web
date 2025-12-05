@@ -2,6 +2,7 @@
 
 import React, { forwardRef, useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
+import { X } from "lucide-react"
 
 // Button Component with advanced animations
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -428,9 +429,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
               onClick={onClose}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X className="w-5 h-5" />
             </button>
           </div>
         )}
@@ -473,9 +472,7 @@ const Toast: React.FC<ToastProps> = ({ message, type = "info", duration = 3000, 
       <div className="flex items-center gap-2">
         <span>{message}</span>
         <button onClick={onClose} className="ml-2 text-current/70 hover:text-current">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <X className="w-4 h-4" />
         </button>
       </div>
     </div>

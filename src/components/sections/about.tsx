@@ -57,17 +57,10 @@ export function AboutSection() {
               </p>
               <div className="grid grid-cols-3 gap-8 pt-8">
                 <div className="text-center p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-colors">
-                  <div className="text-5xl font-black text-primary mb-3">5+</div>
+                  <div className="text-5xl font-black text-primary mb-3">1+</div>
                   <div className="text-sm text-muted-foreground font-medium">Years Active</div>
                 </div>
-                <div className="text-center p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-colors">
-                  <div className="text-5xl font-black text-primary mb-3">20+</div>
-                  <div className="text-sm text-muted-foreground font-medium">Team Members</div>
-                </div>
-                <div className="text-center p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-colors">
-                  <div className="text-5xl font-black text-primary mb-3">15+</div>
-                  <div className="text-sm text-muted-foreground font-medium">Awards Won</div>
-                </div>
+
               </div>
             </div>
 

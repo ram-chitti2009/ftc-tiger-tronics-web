@@ -156,10 +156,40 @@
   }
 }
 
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
 /* Enhanced scroll and selection */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 6rem;
+  }
 }
 
 /* Section spacing and structure */
@@ -482,10 +512,11 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: linear-gradient(90deg, rgb(var(--primary)), rgb(var(--accent)));
   transform-origin: left;
   z-index: 1000;
+  box-shadow: 0 0 10px rgb(var(--primary) / 0.5);
 }
 
 /* Enhanced button effects */
