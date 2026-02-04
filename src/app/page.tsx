@@ -349,7 +349,7 @@ function AboutSection() {
                 <div className="group relative text-center p-8 bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl hover:border-primary/30 hover:bg-card/70 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 min-w-[200px] flex-1 max-w-[280px]">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative">
-                    <div className="text-6xl font-black text-primary mb-4 bg-gradient-to-br from-primary via-primary to-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">5</div>
+                    <div className="text-6xl font-black text-primary mb-4 bg-gradient-to-br from-primary via-primary to-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">12</div>
                     <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold group-hover:text-foreground transition-colors">Team Members</div>
                   </div>
                 </div>
