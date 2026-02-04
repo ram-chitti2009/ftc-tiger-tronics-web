@@ -7,6 +7,8 @@ import { Button, Input, Textarea } from "@/components/ui"
 import { FooterSection } from "@/components/sections/footer"
 import { AchievementsSection } from "@/components/sections/achievements"
 import { GallerySection } from "@/components/sections/gallery"
+import { TimelineSection } from "@/components/sections/timeline"
+import { OutreachSection } from "@/components/sections/outreach"
 import { X, Menu, Mail, MapPin, Bot, DollarSign } from "lucide-react"
 
 // Smooth scroll helper function (accessible to all components)
@@ -46,9 +48,11 @@ function Navbar() {
   // All navigation links
   const navLinks = [
     { href: "#about", label: "About", id: "about" },
+    { href: "#timeline", label: "Timeline", id: "timeline" },
     { href: "#robots", label: "Robots", id: "robots" },
     { href: "#team", label: "Team", id: "team" },
     { href: "#gallery", label: "Gallery", id: "gallery" },
+    { href: "#outreach", label: "Outreach", id: "outreach" },
     { href: "#achievements", label: "Achievements", id: "achievements" },
     { href: "#sponsors", label: "Sponsors", id: "sponsors" },
     { href: "#contact", label: "Contact", id: "contact" },
@@ -176,7 +180,7 @@ function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed font-light">
-            Engineering excellence through robotics innovation and competitive spirit
+            Geared For Success, Driven By Instinct.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -326,13 +330,12 @@ function AboutSection() {
             <div className="space-y-10">
               <div className="space-y-6">
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light">
-                  Tiger Tronics is a competitive robotics team participating in the FIRST Tech Challenge. We're a group of
-                  passionate students dedicated to designing, building, and programming robots that compete at the highest
-                  level.
+                  Tiger Tronics is an FTC team building competition robots with pro-level autonomy, Limelight AI vision, and
+                  precision engineering. We design, build, and program robots that compete at the highest level.
                 </p>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light">
-                  Our mission is to inspire innovation, foster teamwork, and develop the next generation of engineers and
-                  problem solvers through hands-on robotics competition.
+                  Our mission: inspire innovation, foster teamwork, and develop the next generation of engineers and
+                  problem solvers through hands-on robotics.
                 </p>
               </div>
               <div className="flex gap-6 pt-4 justify-center flex-wrap">
@@ -378,11 +381,20 @@ function AboutSection() {
 function RobotsSection() {
   const robots = [
     {
-      name: "TigerBot 2025",
+      name: "Mufasa",
       year: "2025",
-      description: "Our latest competition robot featuring advanced autonomous capabilities and precision engineering.",
+      description: "DECODE season competition robot. PedroPathing with deadwheel localization, Limelight AI vision pipeline for AprilTag alignment and scoring, and mecanum drive for full omnidirectional control.",
       image: "/images/robot-images/V1/image-1.jpg",
-      features: ["Autonomous Navigation", "Precision Manipulation", "Vision Based Programming", "Robust Design"]
+      images: ["/images/robot-images/V1/image-1.jpg", "/images/robot-images/V1/image-2.jpg", "/images/robot-images/V1/image-3.jpg", "/images/robot-images/V1/image-4.jpg", "/images/robot-images/V1/image-5.jpg"],
+      features: ["PedroPathing & Deadwheel Localization", "Limelight AI Vision Pipeline", "AprilTag Alignment & Scoring", "Mecanum Omnidirectional Drive"]
+    },
+    {
+      name: "Simba",
+      year: "WIP",
+      description: "Next-gen build in progress. Upgraded slide torque, beveled drivetrain, and refined claw for higher reliability and scoring.",
+      image: "/images/robot-images/V2/v2%20cad.png",
+      video: "/images/robot-images/V2/v2-wip.mp4",
+      features: ["Iterative Design", "QA-Focused Build", "Next Season Ready"]
     },
   ]
 
@@ -406,6 +418,9 @@ function RobotsSection() {
               Robot Arsenal
             </span>
           </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mb-12">
+            Competition-ready robots built with pro-level autonomy, vision, and drive systems.
+          </p>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {robots.map((robot, index) => (
@@ -415,12 +430,24 @@ function RobotsSection() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative aspect-video overflow-hidden bg-card">
-                  <Image
-                    src={robot.image}
-                    alt={robot.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                  {"video" in robot && robot.video ? (
+                    <video
+                      src={robot.video}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      muted
+                      loop
+                      playsInline
+                      autoPlay
+                      aria-label={robot.name}
+                    />
+                  ) : (
+                    <Image
+                      src={robot.image}
+                      alt={robot.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
                   <div className="absolute top-5 right-5 bg-primary/90 backdrop-blur-sm text-primary-foreground px-4 py-1.5 rounded-full text-xs font-bold tracking-wide shadow-lg">
                     {robot.year}
@@ -449,51 +476,16 @@ function RobotsSection() {
   )
 }
 
-// Helper function to generate DiceBear avatar URLs
-const getAvatarUrl = (name: string) => {
-  return `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(name)}&backgroundColor=b6e3f4,c0aede,ffd5dc,ffdfbf`
-}
-
 // Team Section Component
 function TeamSection() {
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
 
   const teamMembers = [
-    {
-      name: "Gafoor",
-      role: "Team Captain",
-      specialization: "CAD, Build & Strategy",
-      image: getAvatarUrl("Gafoor"),
-      bio: "Leads the team with 1 year of FTC experience and expertise in CAD, Build & Strategy."
-    },
-    {
-      name: "Wadood",
-      role: "Co-Captain",
-      specialization: "Programming, Build & Autonomous Systems",
-      image: getAvatarUrl("Wadood"),
-      bio: "Leads the team with 2 year of FTC experience and expertise in Programming, Build & Autonomous Systems."
-    },
-    {
-      name: "Jayden",
-      role: "Technical Lead",
-      specialization: "Build & Strategy",
-      image: getAvatarUrl("Jayden"),
-      bio: "Leads the team with 1 year of FTC experience and expertise in Build & Strategy."
-    },
-    {
-      name: "Christopher",
-      role: "Marketing and Outreach Lead",
-      specialization: "Marketing, Outreach & Community Engagement",
-      image: getAvatarUrl("Christopher"),
-      bio: "Leads the team with 1 year of FTC experience and expertise in Marketing, Outreach & Community Engagement."
-    },
-    {
-      name: "Jay Jay",
-      role: "Award Coordinator",
-      specialization: "Design & Engineering",
-      image: getAvatarUrl("Jay Jay"),
-      bio: "Leads the team with 1 year of FTC experience and expertise in Design & Engineering."
-    }
+    { name: "Gafoor", role: "Team Captain", specialization: "CAD, Build & Strategy", image: "/images/team/cad-lead.png" },
+    { name: "Wadood", role: "Co-Captain", specialization: "Programming & Autonomous", image: "/images/team/prog-lead.png" },
+    { name: "Jayden", role: "Technical Lead", specialization: "Build & Strategy", image: "/images/team/build-lead.png" },
+    { name: "Christopher", role: "Marketing & Outreach Lead", specialization: "Outreach & Community", image: "/images/team/marketing-outreach-lead.png" },
+    { name: "Jay Jay", role: "Award Coordinator", specialization: "Design & Engineering", image: "/images/team/outreach-awards-lead.png" },
   ]
 
   return (
@@ -544,8 +536,7 @@ function TeamSection() {
                 <div className="text-center">
                   <h3 className="text-xl font-bold mb-2 text-foreground">{member.name}</h3>
                   <p className="text-primary font-semibold mb-2 text-sm">{member.role}</p>
-                  <p className="text-xs text-muted-foreground mb-4 uppercase tracking-wider font-medium">{member.specialization}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-light">{member.bio}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{member.specialization}</p>
                 </div>
                 </div>
               </div>
@@ -566,8 +557,14 @@ function SponsorsSection() {
       name: "Texas Instruments",
       tier: "Platinum Sponsor",
       logo: "/images/sponsors/TI-logo.jpg",
-      description: "Empowering the next generation of engineers and innovators through STEM education"
-    }
+      description: "Empowering the next generation of engineers and innovators through STEM education",
+    },
+    {
+      name: "McKesson",
+      tier: "Platinum Sponsor",
+      logo: "/images/sponsors/mckesson.jpg",
+      description: "Technical mentorship, digital development, and AI-powered outreach tools for our team.",
+    },
   ]
 
   return (
@@ -599,28 +596,28 @@ function SponsorsSection() {
           </div>
 
           {sponsors.length > 0 ? (
-            <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-8 max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {sponsors.map((sponsor, index) => (
                 <div
                   key={index}
                   className="group relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-3xl p-10 hover:border-primary/30 hover:bg-card/70 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative h-20 mb-6 flex items-center justify-center">
+                  <div className="relative h-28 min-h-[112px] mb-6 flex items-center justify-center px-4">
                     {logoErrors[index] ? (
                       <div className="w-full h-full flex items-center justify-center">
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-primary mb-1">TI</div>
-                          <p className="text-xs text-muted-foreground">Texas Instruments</p>
+                          <div className="text-2xl font-bold text-primary mb-1">{sponsor.name.slice(0, 2).toUpperCase()}</div>
+                          <p className="text-xs text-muted-foreground">{sponsor.name}</p>
                         </div>
                       </div>
                     ) : (
                       <Image
                         src={sponsor.logo}
                         alt={sponsor.name}
-                        width={120}
-                        height={80}
-                        className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        width={180}
+                        height={112}
+                        className="object-contain w-auto h-auto max-h-full max-w-full filter grayscale group-hover:grayscale-0 transition-all duration-300"
                         onError={() => setLogoErrors(prev => ({ ...prev, [index]: true }))}
                       />
                     )}
@@ -787,9 +784,11 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <TimelineSection />
       <RobotsSection />
       <TeamSection />
       <GallerySection />
+      <OutreachSection />
       <AchievementsSection />
       <SponsorsSection />
       <ContactSection />
