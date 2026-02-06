@@ -505,7 +505,7 @@ function TeamSection() {
 
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-20 text-balance tracking-tight leading-[0.9]">
             <span className="bg-gradient-to-r from-foreground via-foreground/90 to-primary bg-clip-text text-transparent">
-              Our Team
+              Leadership
             </span>
           </h2>
 
