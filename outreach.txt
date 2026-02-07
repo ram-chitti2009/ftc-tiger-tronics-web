@@ -1,0 +1,509 @@
+HSI Tigertronics Portfolio by Uzair Saeed
+
+Limelight - April Tag pipeline is used to auto allign to the goal and calculate velocity needed for the shooter
+
+Deadwheels - Main method of localization consisting of 3 Gobilda omni-wheels connected to encoders. They allow the robot to measure distance, then with dead wheel calculations, the accurate position of the robot is stored. This localization method was custom programmed to work effectively in TeleOp just as much as autonomous, and it is still compatible with pedropathing. 
+
+April Tags - In autonomous mode, we used AprilTag x values for strafing. To address voltage inconsistencies, especially on the far side, we improved AprilTag detection to reliably score the artificacts, stabilizing performance.
+
+
+IMU/Gobuilda Pinpoint - Initial method of localization, however, the team decided this was no longer an effective method because it lacked the ability to track external factors. Regardless, IMU is still used to track the angle because there is a smaller margin of error.  This is why we use gobuilda pinpoint for more accurate pedropathing stuff.
+
+Auton Pathing
+
+Object Detection - Utilizes HuskyLens to detect artificats for better accuracy of intaking balls and to lets is know if we 3 balls or not.
+
+Pathing - After trials with encoder drive, IMU localization, and pure pursuit, the team settled on PedroPathing with custom deadwheel localization for optimal autonomous efficiency, using BezierLines and Bezier Curves commands.
+
+AUTON - Localization
+
+9
+
+auton & Teleop
+
+Intake direction logic is adjusted during shooting for proper feeding
+
+Shooter flywheels spin to a target velocity using encoder feedback
+
+ Velocity is dynamically adjusted using distance-based regression
+
+Blocker opens only when shooter is at target velocity
+
+ Prevents premature feeding and ensures consistent shots
+
+Mecanum drive enables omnidirectional movement for fast alignment
+
+
+
+
+
+
+
+features
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Breakdown    Anatomy
+
+Slide Speed and Torque
+
+PROBLEMS
+
+1620 RPM motors didn’t have enough torque to hang and fully extend with the claw weight 
+
+SOLUTIONS
+
+Both slides switched to 312 RPM motors to lift claw and hang
+
+LESSONS LEARNED
+
+Importance of Quality Assurance (QA) for each  iteration process
+
+
+Slow and Large Drivetrain
+
+PROBLEMS
+
+Bulky drivetrain caused localization issues
+
+312 RPM motors slowed down drivetrain
+
+SOLUTION
+
+Beveled drivetrain with vertical motors saved space
+
+435 RPM motors increased speed
+
+LESSONS LEARNED
+
+Importance of cautious planning to ensure a smooth building process
+
+Voltage Issues
+
+PROBLEMS
+
+Voltage spikes diminished robot performance
+
+SOLUTIONS
+
+Used a Multimeter to observe when voltage
+spikes would occur and figured out that slide
+motors were constantly running since encoder
+position 0 could not be reached accurately
+
+Observed voltage depressions in the graph
+
+Implemented touch sensor on slides to make
+motors stop when slides go down
+
+LESSONS LEARNED
+
+Importance of graphing voltage while robot
+runs
+
+Claw Too Far From Backdrop
+
+PROBLEMS
+
+Claw was too far from
+backdrop (2 inches)
+during elevated
+position 
+
+SOLUTIONS
+
+Shifted pivot point
+further away from
+robot to ensure a claw
+close to backdrop
+
+LESSONS LEARNED
+
+Importance of
+persistent optimization
+and iterations
+
+Static Electricity/ion
+
+PROBLEMS
+
+Static discharge would make robot disconnect when it bumps into metal truss
+
+SOLUTIONS
+
+Static Spray
+
+Non-conductive sideplates and side bumpers
+
+Grounding wire
+
+LESSONS LEARNED
+
+Importance of insulating electronics
+
+
+Claw Grip
+
+PROBLEMS
+
+Pixels would slip outside of claw’s grip when claw was lifted
+
+SOLUTIONS
+
+Attached rubber bands to claw to create friction
+
+LESSONS LEARNED
+
+Importance of using rubber when picking up plastic pixels
+
+Claw Picking up 3 Pixels and Difficulty Aligning  to Pick up Pixels
+
+PROBLEMS
+
+Claw picked up 3 pixels off stack
+
+Alignment to pixel stack was inconsistent in Auton and Teleop
+
+SOLUTION
+
+New claw with barrier to prevent picking up more than two pixels
+
+Used Husky-Lens AI Camera to detect the stack and align to it
+
+Color sensors in claw to automatically close claw 
+
+LESSONS LEARNED
+
+Importance of evaluating design failures before implementation
+
+
+9
+
+Our failure analysis APPROACH
+
+Failure modes and effect analysis (FMEA)
+
+Example of FMEA Approach for Voltage Issue
+
+Severity: Seriousness of effect if failure occurs
+
+Occurence: How frequently failure mode is likely to happen
+
+Detection: How probable current controls will detect the failure mode before it causes a problem
+
+Severity, Occurence, Detection (SOD) Ratings: Assigned ratings on a scale of 1-10, with 10 being the highest in terms of risk or likelihood
+
+RPN (Risk Priority Number) = Severity x Occurence x Detection
+
+Low
+
+High
+
+10
+
+TEAM: #32561
+
+Building Futures with
+FIRST Robotics
+
+Hosted Epic Labs for an
+FTC scrimmage, connecting
+with their coaches and
+teams while everyone
+tested strategies, refined
+robots, and shared ideas in
+a collaborative, high-
+energy environment.
+
+
+
+Mentored the Harmony
+Carrollton teams,
+HuskyBot and
+Br@1nD3@d, guiding
+them in robot
+development, strategy
+refinement, and building
+stronger teamwork skills.
+
+
+Dallas City Council
+
+Presented our team and
+robot to Dallas City Council
+Member Cara Mendelsohn,
+highlighting FTC’s student
+impact and community
+partnership opportunities.
+
+
+
+DECODE Outreach
+
+Science Fair Organization
+
+Helped organize our
+school’s annual science fair,
+showcased our robot to
+parents, educators, and
+students, and explained the
+impact of FTC Robotics
+while encouraging
+participation.
+
+
+Helped organize the Fall
+Festival by coordinating the
+schedule, managing
+volunteers, arranging
+activities, overseeing setup
+and teardown, and ensuring
+smooth operations
+throughout the event.
+
+
+Horizons Academy
+
+Fall Festival Organization
+
+Scrimmage - Rusty Crabs
+
+Hosted the Rusty Crabs
+for an FTC scrimmage,
+providing teams with
+practice matches and
+opportunities to
+collaborate and prepare
+for competition in a
+supportive environment.
+
+
+Scrimmage - Epic Labs
+
+Premvaasam
+
+Virtually connected with
+Premvaasam’s founder, a
+small business in Atlanta,
+GA, to learn about social
+media marketing and other
+operations, and received
+sponsorship after they
+were impressed by our FTC
+work.
+
+
+Mentoring the robotics community
+
+Mentored the Harmony
+Carrollton teams,
+HuskyBot and
+Br@1nD3@d, guiding
+them in robot
+development, strategy
+refinement, and building
+stronger teamwork skills.
+
+
+
+Guided the Dallas-based
+Itkan Rangers through
+robot design and
+programming, helping them
+troubleshoot challenges
+while fostering innovation,
+collaboration, and
+enthusiasm for STEM.
+
+
+
+First Lego League Mentorship
+
+Mentored Dallas-based FLL
+(First Lego League) teams,
+guiding students through
+project research, robot
+design, and programming,
+while fostering teamwork,
+problem-solving, and a
+passion for STEM. 
+
+DECODE Outreach
+
+FTC Team - North Carolina
+
+Mentored a North
+Carolina–based FTC team,
+providing guidance on robot
+design, strategy, and
+troubleshooting while
+sharing insights and best
+practices from our own
+FTC experience to help
+them grow technically and
+collaboratively.
+
+
+Introduced DFW school
+district students to FTC
+robotics at the Perot
+Museum, guiding them
+through hands-on activities,
+explaining robot design and
+strategy, and sparking
+interest in STEM.
+
+
+Harmony Carrollton Robotics
+
+Perot Museum - Multiple School Districts
+
+Vex Robotics Team
+
+Hosted the Rusty Crabs
+for an FTC scrimmage,
+providing teams with
+practice matches and
+opportunities to
+collaborate and prepare
+for competition in a
+supportive environment.
+
+
+Itkan Rangers
+
+Itkan Girls
+
+Mentored the Itkan Rangers
+Girls team from Dallas,
+supporting them in robot
+design, programming, and
+problem-solving while
+promoting women’s
+representation in STEM and
+encouraging confidence,
+collaboration, and innovation.
+
+
+Learning from our community
+
+12
+
+TEAM: #32561
+
+Engineering Mentorship
+
+McKesson
+
+DECODE Outreach
+
+Texas Instruments
+
+Avirso
+
+Toyota
+
+Visited Texas Instruments’ Development
+Center to engage directly with industry
+experts and gain exposure to world-class
+engineering laboratories, tools, and
+professional best practices. 
+
+
+
+
+Demonstrated the Robot’s capabilities
+to technical subject matter experts at
+Avirso and highlighted engineering
+decisions, engineering setbacks and
+iterative problem solving
+
+
+Noor Engineering
+
+Coordinated with Toyota as part of
+Corporate Outreach and Discussed
+automation concepts and engineering
+parallels between FTC robotics and large-
+scale automotive manufacturing.
+
+
+
+Worked Alongside AI Subject Matter
+Expert at McKesson to build an AI based
+assistant for organizational clarity and
+outreach management
+
+
+Worked Alongside Noor Engineering
+for Design Reviews,  and iterated on
+structural and functional issues.
+
+Taz Realty
+
+Liaised with Taz Realty to foster community
+partnership as part of local business outreach
+initiatives and enhance marketing expertise.
+
+Received Mentorship from Hadi
+Khan and Yumna Khan  a Engineering
+Students at University of Texas,
+Dallas where we enhanced our
+knowledge base of best
+programming practices and writing
+maintainable and scalable code.
+
+
+
+Broadridge
+
+Accenture 
+
+Virtually connected with a Broadridge
+employee to expand our robotics
+team’s understanding of industry-
+standard engineering operations and
+how scalable infrastructure and
+reliability practices apply to real-world
+robotics systems.
+
+Coordinated with Accenture and
+internal leaders to gain insights into
+high-performing technical teams,
+productivity methodologies, and
+autonomous navigation performance.
+
+McKesson
+
+
+We hosted snack sales everny Monday &
+
+
+Introduced DFW school
+district students to FTC
+robotics at the Perot
+Museum, guiding them
+through hands-on activities,
+explaining robot design and
+strategy, and sparking
+interest in STEM.
+
+
