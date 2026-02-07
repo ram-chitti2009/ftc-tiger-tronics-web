@@ -394,7 +394,7 @@ function RobotsSection() {
       description: "Next-gen build in progress. Upgraded slide torque, beveled drivetrain, and refined claw for higher reliability and scoring.",
       image: "/images/robot-images/V2/v2%20cad.png",
       video: "/images/robot-images/V2/v2-wip.mp4",
-      features: ["Iterative Design", "QA-Focused Build", "Next Season Ready"]
+      features: ["Iterative Design", "QA-Focused Build", "Consistent, Reliable Scoring"]
     },
   ]
 
