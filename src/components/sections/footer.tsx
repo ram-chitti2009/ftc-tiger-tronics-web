@@ -1,16 +1,7 @@
 "use client"
 
 import { Instagram } from "lucide-react"
-
-const scrollToSection = (id: string) => {
-  const element = document.getElementById(id)
-  if (element) {
-    const navbarHeight = 80
-    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-    const offsetPosition = elementPosition - navbarHeight
-    window.scrollTo({ top: offsetPosition, behavior: "smooth" })
-  }
-}
+import { scrollToSection } from "@/lib/scroll"
 
 export function FooterSection() {
   return (
@@ -23,7 +14,7 @@ export function FooterSection() {
               <span className="text-primary">Tronics</span>
             </span>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Geared For Success, Driven By Instinct.
+              Geared For Success, Driven By Instinct. Community first, on and off the field.
             </p>
             <a
               href="https://www.instagram.com/hsi_tiger_tronics/"
@@ -58,6 +49,15 @@ export function FooterSection() {
               </li>
               <li>
                 <a
+                  href="#achievements"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("achievements") }}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
+                  Results
+                </a>
+              </li>
+              <li>
+                <a
                   href="#team"
                   onClick={(e) => { e.preventDefault(); scrollToSection("team") }}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
@@ -72,6 +72,15 @@ export function FooterSection() {
                   className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                 >
                   Timeline
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#videos"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("videos") }}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
+                  Videos
                 </a>
               </li>
               <li>

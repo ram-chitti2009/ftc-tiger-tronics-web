@@ -107,11 +107,11 @@ export function GallerySection() {
   return (
     <section
       id="gallery"
-      className="min-h-screen flex items-center py-32 px-6 md:px-8 lg:px-12 bg-background relative overflow-hidden"
+      className="relative overflow-hidden bg-background py-24 sm:py-32 lg:py-40"
     >
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl -z-0" />
 
-      <div className="max-w-[1400px] mx-auto relative z-10 w-full">
+      <div className="section-inner relative z-10">
         <div>
           <div className="mb-6">
             <span className="text-primary font-mono text-sm font-bold tracking-widest uppercase">

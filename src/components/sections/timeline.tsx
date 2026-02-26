@@ -101,14 +101,15 @@ export function TimelineSection() {
     <section
       id="timeline"
       ref={sectionRef}
-      className="min-h-screen flex items-center py-32 px-6 md:px-8 lg:px-12 bg-background relative overflow-hidden"
+      className="relative overflow-hidden bg-background py-24 sm:py-32 lg:py-40"
     >
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/6 rounded-full blur-[200px] -z-0" />
       <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-primary/4 rounded-full blur-[180px] -z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_0%,rgba(220,38,38,0.04),transparent_70%)] -z-0" />
 
-      <div className="max-w-[1200px] mx-auto relative z-10 w-full">
-        <div className="text-center mb-16 lg:mb-20">
+      <div className="section-inner relative z-10">
+        <div className="max-w-[1200px] mx-auto">
+        <div className="text-center mb-12 lg:mb-16">
           <span className="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-primary font-mono text-xs font-semibold tracking-[0.2em] uppercase mb-5">
             Our Journey
           </span>
@@ -266,6 +267,7 @@ export function TimelineSection() {
         <p className="mt-12 text-center text-xs text-muted-foreground/60">
           Not all events shown. See Engineering Notebook for full list.
         </p>
+        </div>
       </div>
     </section>
   )

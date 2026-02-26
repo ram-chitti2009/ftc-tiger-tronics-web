@@ -24,11 +24,11 @@ export function AchievementsSection() {
   return (
     <section
       id="achievements"
-      className="min-h-screen flex items-center py-24 px-6 md:px-8 lg:px-12 bg-background relative overflow-hidden"
+      className="relative overflow-hidden bg-background py-24 sm:py-32 lg:py-40"
     >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-0" />
 
-      <div className="max-w-7xl mx-auto relative z-10 w-full">
+      <div className="section-inner relative z-10">
         <div>
           <div className="mb-6">
             <span className="text-primary font-mono text-sm font-bold tracking-widest uppercase">
@@ -36,11 +36,14 @@ export function AchievementsSection() {
             </span>
           </div>
 
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-16 text-balance tracking-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
-            Stats & Highlights
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 text-balance tracking-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+            Proven Results
           </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 md:mb-14">
+            Our first season put us on the global map: 5th in the world and #1 in autonomous. We compete to win, share what we learn, and give back to our community.
+          </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <div
                 key={index}

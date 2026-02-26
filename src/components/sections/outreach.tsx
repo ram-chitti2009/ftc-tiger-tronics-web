@@ -70,30 +70,33 @@ export function OutreachSection() {
   return (
     <section
       id="outreach"
-      className="min-h-screen flex items-center py-40 px-6 md:px-8 lg:px-12 bg-background relative overflow-hidden"
+      className="relative overflow-hidden bg-background py-24 sm:py-32 lg:py-40"
     >
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[200px] -z-0" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[200px] -z-0" />
 
-      <div className="max-w-[1400px] mx-auto relative z-10 w-full">
+      <div className="section-inner relative z-10">
         <div>
-          <div className="mb-8">
+          <div className="mb-6">
             <span className="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-primary font-mono text-xs font-semibold tracking-widest uppercase">
-              Learning from our community
+              Community & partnerships
             </span>
           </div>
 
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 text-balance tracking-tight leading-[0.9]">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 text-balance tracking-tight leading-[0.9]">
             <span className="bg-gradient-to-r from-foreground via-foreground/90 to-primary bg-clip-text text-transparent">
               Outreach
             </span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
-            Engineering mentorship, DECODE outreach, and community partnerships. Team #32561.
+          <p className="text-lg text-muted-foreground mb-6 max-w-2xl">
+            We believe robotics is stronger when we lift each other. Corporate partnerships, FLL and VEX mentorship, scrimmages with other teams, and community events. We share STEM and gracious professionalism beyond the field.
+          </p>
+          <p className="text-base text-muted-foreground/90 mb-10 md:mb-12 max-w-2xl">
+            From Dallas City Council and the Perot Museum to Texas Instruments and McKesson, we learn from our community and give back through mentoring, demos, and collaboration.
           </p>
 
           {/* Tabs */}
-          <div className="flex flex-wrap gap-2 mb-12">
+          <div className="flex flex-wrap gap-2 mb-10">
             {outreachTabs.map((tab) => {
               const Icon = tab.icon
               return (
@@ -113,7 +116,7 @@ export function OutreachSection() {
             })}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {items.map((item, index) => (
               <div
                 key={`${item.name}-${index}`}
